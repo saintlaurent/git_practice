@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+<div id="photos"></div>
+
+<form>
+    <label for="query"></label>
+    <input type="text" id="query">
+    <button type="submit">Submit</button>
+</form>
+<script>
+    $(function(){
+        $('form').submit(function(evt){
+            evt.preventDefault();
+            var query = $("form #query").val();
+            var id = $(this).attr("id");
+            var flickerAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+            var showImage = function(data){
+                for(var i = 0; i < data.items.length; i++){
+                    if(data.items[i].tags.contains(query)){
+                        var picHTML = '<img src="' + data.items[i].media.m + '">';
+                        $('#photos').append(picHTML);
+                    }
+                }
+            };
+            var dataToAPI = {
+                format: "json"
+            };
+            $.getJSON(flickerAPI, dataToAPI, showImage);
+
+        });
+
+    });
+</script>
+</body>
+</html>

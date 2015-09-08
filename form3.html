@@ -1,0 +1,27 @@
+
+<form action="form_process3.php" method="post">
+    First name:<br>
+    <input type="text" name="firstname" value="Jamie">
+    <br>
+    Last name:<br>
+    <input type="text" name="lastname" value="King">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+<script>
+    $(function(){
+        $('form').submit(function(evt){
+            evt.preventDefault();
+            //prevents default action from happening
+            var url = $(this).attr("action");
+            var formData = $(this).serialize();
+            $.ajax(url, {
+                data:formData,
+                type: "POST",
+                success : function(response){
+                    $('#form').html(response);
+                }
+            });
+        });
+    });
+</script>

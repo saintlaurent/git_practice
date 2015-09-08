@@ -1,0 +1,5 @@
+[
+  {"name" : "Catherine", "inoffice": false},
+  {"name" : "Jaimie", "inoffice": true},
+  {"name" : "May", "inoffice": true}
+]

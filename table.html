@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.1.1.js"></script>
+
+    <script src="js/jquery.dragtable.js"></script>
+
+    <link rel="stylesheet" href="css/dragtable-default.css">
+    <style type="text/css">
+
+
+        /* tables still need 'cellspacing="0"' in the markup */
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        /* add some styling to the table, padding etc*/
+        table thead th{
+            padding:3px 10px;
+            border-bottom:1px solid #000000;
+            background:#CCCCCC;
+            background-size: 50%;
+        }
+        table tbody td{
+            padding:3px 10px;
+            white-space: nowrap;
+        }
+        table tbody tr:nth-of-type(2n+1) td{
+            background:#7AA6DC;
+        }
+
+        tfoot td{
+            background: #ccc;
+        }
+        #three tbody tr:nth-of-type(2n+1) td{
+            background:#82CE76;
+        }
+        .drag{
+            background:#CCCCCC !important;
+            color:#cCCCCC;
+        }
+
+        .dragtable-drag-handle{
+            height:.5em;
+            width: 5px;
+            float: right;
+            background:green;
+        }
+
+        .tablewrapper{
+            position: relative;
+            overflow: scroll;
+            width: 400px;
+            margin: 3em;
+        }
+        .tablewrapper table{
+            width: 100%;
+        }
+        .test3{
+            /*border-right: 5px solid red !important;*/
+        }
+
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('#three').dragtable();
+            $('#localStorageTable').dragtable({
+                persistState: function(table) {
+                    if (!window.sessionStorage) return;
+                    var ss = window.sessionStorage;
+                    table.el.find('th').each(function(i) {
+                        if(this.id != '') {table.sortOrder[this.id]=i;}
+                    });
+                    ss.setItem('tableorder',JSON.stringify(table.sortOrder));
+                },
+                restoreState: eval('(' + window.sessionStorage.getItem('tableorder') + ')')
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+<h1>around 100 cells</h1>
+<hr />
+<table id="three">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>first name</th>
+        <th>last name</th>
+        <th>phone number</th>
+        <th>team color</th>
+        <th>salary</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>10234</td>
+        <td>John</td>
+        <td>Smith</td>
+        <td>555-555-5555</td>
+        <td>orange</td>
+        <td>$2.00</td>
+    </tr>
+    <tr>
+        <td>102288</td>
+        <td>Jane</td>
+        <td>Smith</td>
+        <td>555-445-5555</td>
+        <td>purple</td>
+        <td>$1000.00</td>
+    </tr>
+    <tr>
+        <td>11534</td>
+        <td>Ben</td>
+        <td>Dover</td>
+        <td>555-443-5555</td>
+        <td>pink</td>
+        <td>$200.00</td>
+    </tr>
+    <tr>
+        <td>2153</td>
+        <td>Goldy</td>
+        <td>Dilgger</td>
+        <td>555-555-2562</td>
+        <td>blue</td>
+        <td>$200.40</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Steve</td>
+        <td>Southwest</td>
+        <td>554-555-3562</td>
+        <td>orange</td>
+        <td>$710.40</td>
+    </tr>
+    <tr>
+        <td>10234</td>
+        <td>John</td>
+        <td>Smith</td>
+        <td>555-555-5555</td>
+        <td>orange</td>
+        <td>$2.00</td>
+    </tr>
+    <tr>
+        <td>102288</td>
+        <td>Jane</td>
+        <td>Smith</td>
+        <td>555-445-5555</td>
+        <td>purple</td>
+        <td>$1000.00</td>
+    </tr>
+    <tr>
+        <td>11534</td>
+        <td>Ben</td>
+        <td>Dover</td>
+        <td>555-443-5555</td>
+        <td>pink</td>
+        <td>$200.00</td>
+    </tr>
+    <tr>
+        <td>2153</td>
+        <td>Goldy</td>
+        <td>Dilgger</td>
+        <td>555-555-2562</td>
+        <td>blue</td>
+        <td>$200.40</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Steve</td>
+        <td>Southwest</td>
+        <td>554-555-3562</td>
+        <td>orange</td>
+        <td>$710.40</td>
+    </tr>
+    <tr>
+        <td>10234</td>
+        <td>John</td>
+        <td>Smith</td>
+        <td>555-555-5555</td>
+        <td>orange</td>
+        <td>$2.00</td>
+    </tr>
+    <tr>
+        <td>102288</td>
+        <td>Jane</td>
+        <td>Smith</td>
+        <td>555-445-5555</td>
+        <td>purple</td>
+        <td>$1000.00</td>
+    </tr>
+    <tr>
+        <td>11534</td>
+        <td>Ben</td>
+        <td>Dover</td>
+        <td>555-443-5555</td>
+        <td>pink</td>
+        <td>$200.00</td>
+    </tr>
+    <tr>
+        <td>2153</td>
+        <td>Goldy</td>
+        <td>Dilgger</td>
+        <td>555-555-2562</td>
+        <td>blue</td>
+        <td>$200.40</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Steve</td>
+        <td>Southwest</td>
+        <td>554-555-3562</td>
+        <td>orange</td>
+        <td>$710.40</td>
+    </tr>
+    <tr>
+        <td>10234</td>
+        <td>John</td>
+        <td>Smith</td>
+        <td>555-555-5555</td>
+        <td>orange</td>
+        <td>$2.00</td>
+    </tr>
+    <tr>
+        <td>102288</td>
+        <td>Jane</td>
+        <td>Smith</td>
+        <td>555-445-5555</td>
+        <td>purple</td>
+        <td>$1000.00</td>
+    </tr>
+    <tr>
+        <td>11534</td>
+        <td>Ben</td>
+        <td>Dover</td>
+        <td>555-443-5555</td>
+        <td>pink</td>
+        <td>$200.00</td>
+    </tr>
+    <tr>
+        <td>2153</td>
+        <td>Goldy</td>
+        <td>Dilgger</td>
+        <td>555-555-2562</td>
+        <td>blue</td>
+        <td>$200.40</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Steve</td>
+        <td>Southwest</td>
+        <td>554-555-3562</td>
+        <td>orange</td>
+        <td>$710.40</td>
+    </tr>
+    <tr>
+        <td>10234</td>
+        <td>John</td>
+        <td>Smith</td>
+        <td>555-555-5555</td>
+        <td>orange</td>
+        <td>$2.00</td>
+    </tr>
+    <tr>
+        <td>102288</td>
+        <td>Jane</td>
+        <td>Smith</td>
+        <td>555-445-5555</td>
+        <td>purple</td>
+        <td>$1000.00</td>
+    </tr>
+    <tr>
+        <td>11534</td>
+        <td>Ben</td>
+        <td>Dover</td>
+        <td>555-443-5555</td>
+        <td>pink</td>
+        <td>$200.00</td>
+    </tr>
+    <tr>
+        <td>2153</td>
+        <td>Goldy</td>
+        <td>Dilgger</td>
+        <td>555-555-2562</td>
+        <td>blue</td>
+        <td>$200.40</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Steve</td>
+        <td>Southwest</td>
+        <td>554-555-3562</td>
+        <td>orange</td>
+        <td>$710.40</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<div class="demo">
+    <h4>demo</h4>
+
+    <div class="demo-content">
+        <table id="localStorageTable" class="sar-table">
+            <thead>
+            <tr>
+                <th id="lst_time">TIME</th>
+                <th id="lst_user">%user</th>
+                <th id="lst_nice">%nice</th>
+
+                <th id="lst_system">%system</th>
+                <th id="lst_iowait">%iowait</th>
+                <th id="lst_idle">%idle</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>12:10:01 AM</td><td>28.86</td><td>0.04</td><td>1.65</td><td>0.08</td><td>69.36</td>
+
+            </tr>
+            <tr>
+                <td>12:20:01 AM</td><td>26.54</td><td>0.00</td><td>1.64</td><td>0.08</td><td>71.74</td>
+            </tr>
+            <tr>
+                <td>12:30:01 AM</td><td>29.73</td><td>0.00</td><td>1.66</td><td>0.09</td><td>68.52</td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+</body>
+</html>

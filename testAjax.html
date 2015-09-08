@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body>
+<div id="ajax">
+
+</div>
+<button id="sendAjax">Send Ajax</button>
+<script>
+    $(function(){
+        $('button').click(function(){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4 && xhr.status == 200){
+                    var employees = JSON.parse(xhr.responseText);
+                    var html = "<ul>";
+                    for(var i = 0; i<employees.length; i++){
+                        $('#ajax').append(employees[i].name + " ");
+                    }
+
+                }
+            };
+
+            xhr.open('GET', 'data.json');
+            //In a real-world application, the data URL will generally be a server side script URL
+
+            xhr.send();
+        });
+
+    });
+
+</script>
+</body>
+</html>

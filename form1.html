@@ -1,0 +1,24 @@
+<form action="form_process1.php">
+    <fieldset>
+        <legend>Personal information:</legend>
+        First name:<br>
+        <input type="text" name="firstname" value="Mickey">
+        <br>
+        Last name:<br>
+        <input type="text" name="lastname" value="Mouse">
+        <br><br>
+        <input type="submit" value="Submit"></fieldset>
+</form>
+
+<script>
+    $(function(){
+        $('form').submit(function(evt){
+            evt.preventDefault();
+            var url = $(this).attr("action");
+            var formData = $(this).serialize();
+            $.post(url, formData, function(response){
+                $('#form').html(response);
+            });
+        });
+    });
+</script>
