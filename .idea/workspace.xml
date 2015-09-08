@@ -112,8 +112,8 @@
       <file leaf-file-name="sortable_columns.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sortable_columns.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38548753" vertical-offset="0" max-vertical-offset="1139">
-              <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.40249434" vertical-offset="257" max-vertical-offset="1139">
+              <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -155,6 +155,7 @@
         <option value="$PROJECT_DIR$/form3.html" />
         <option value="$PROJECT_DIR$/flickr_api.html" />
         <option value="$PROJECT_DIR$/sortable.html" />
+        <option value="$PROJECT_DIR$/sortable_columns.html" />
       </list>
     </option>
   </component>
@@ -699,8 +700,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sortable_columns.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38548753" vertical-offset="0" max-vertical-offset="1139">
-          <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.40249434" vertical-offset="257" max-vertical-offset="1139">
+          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
           <folding />
         </state>
       </provider>
